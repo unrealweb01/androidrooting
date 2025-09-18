@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rooting Redmi 10 a</title>
+</head>
+<body>
+    <h1 style="color:green;">How to Root Redmi 10a?</h1>
+    <p></p>
+    <p></p>
+    <h3>First We need to download all the tools listed below to prepare for rooting</h3>
+    <h2 style="color:blueviolet">Prequesties:</h2>
+    <p style="font-weight: 1000;">***Mobile Must have Sim card***</p>
+    <ol>
+        
+        <li><a href="https://miuirom.xiaomi.com/rom/u1106245679/6.5.224.28/miflash_unlock-en-6.5.224.28.zip">MI OEM unlock Tool</a></li>
+        <li><a href="https://www.xiaomitool.com/V2/#download">XiaoMitool V2</a></li>
+        <li><a href="https://bn.d.miui.com/V12.5.16.0.RCZMIXM/dandelion_c3l2_global_images_V12.5.16.0.RCZMIXM_20240307.0000.00_11.0_global_f90c3c88a3.tgz">Redmi 10a fastboot rom</a></li>
+        <li><a href="https://magisk.me/">Magisk App</a></li>
+        <li><a href="https://www.bing.com/ck/a?!&&p=320c43493f5d20524ce617e4f23ffa54a52766cf04570c1feee9df03554cddc5JmltdHM9MTc1ODE1MzYwMA&ptn=3&ver=2&hsh=4&fclid=21bb0729-d6d4-606a-0271-13fed723613b&psq=playstore+root+checker&u=a1aHR0cHM6Ly9wbGF5Lmdvb2dsZS5jb20vc3RvcmUvYXBwcy9kZXRhaWxzP2lkPWNvbS5qb2V5a3JpbS5yb290Y2hlY2smaGw9ZW4tVVM">Root Checker App</a></li>
+        <li><a href="https://developer.android.com/tools/releases/platform-tools">android platform-tools</a></li>
+    </ol>
+    <h1 style="text-decoration: underline;color:red">Rooting Method</h1>
+    <h3 style="color:teal">* Modifying redmi 10a fastboot rom boot.img by magisk app</h3>
+    <h3  style="color:teal">* Booting the redmi 10a with modified boot.img using fastboot tool in platform-tools</h3>
+    <h2 style="color: greenyellow;">Step 1: Enable Developer options </h2>
+    <p>Turn on developer option by following steps</p>
+    <ol>
+        <li>Go to Settings</li>
+        <li>Go into About Phone</li>
+        <li>Click All Specs</li>
+        <li>Tap MIUI version until you see , you are a developer</li>
+        <li>Now back, Developer Options is shown in the Additional Settings</li>
+        <li>Enter into Developer options, Turn on</li>
+        <li>Enable usb debugging</li>
+    </ol>
+    <h2 style="color:blue">Step 2: Unlocking Bootloader</h2>
+    <ol>
+        <li>Enable OEM unlocking</li>
+        <li>Click Mi Unlock Status</li>
+        <li>Click Add an Account</li>
+        <li>Add your Mi account</li>
+        <li>Download mi oem unlock tool using above link </li>
+        <li>Connecting Your Mobile to Pc using Usb cable</li>
+        <li>After Installing, Login with Your Mi Account Or using Qr code Scanner in accounts Settings</li>
+        <li>After Logged in,You See Your Devices If not install XiaoMitool V2-> Select I want to Mod-> Installing the driver</br>after that back to mi unlock tool now your device get recognized</li>
+        <li>Click unlock after that, It Says 168 hours to unlock</li>
+        <li>Wait for one week</li>
+        <li>One Week Later, Again run the mi unlock tool to unlock. Now your device get unlocked after reboot.</li>
+        <li>Go to settings ->Additional settings -> Developer option -> Mi unlock Status. Now you see This device is unlocked.</li>
+    </ol>
+    <h3 style="font-style: italic;">Now We are Sucessfully unlocking the bootloder.</h3>
+    <h2 style="color:brown">Step 3: Installing platform-tools and magisk </h2>
+    <ol>
+    <li>Download and Install the platform-tools in your pc using above link </li>
+    <li>Installing Magisk app in your mobile from above link.</li></ol>
+    <h2>Step 4: Modifying boot.img</h2>
+    <ol>
+        <li>Download redmi 10a fastboot rom from above link, In my case my redmi 10 a mobile is global version and miui version 12.5.16.0</br><a href="https://miuirom.org/">You can download your model rom by search on miuirom.com</a></li>
+        <li>unzip it</li>
+        <li>Inside the folder -> Images -> copy the boot.img and vbmeta.img to the platform-tools folder </li>
+        <li>Go to platform-tools folder</li>
+        <li>We need to modify the boot.img for rooting so,pushing the boot.img to your mobile using adb by following commands</li>
+        <li>adb devices</li>
+        <p>wait for your device shown in list of devices attached </p>
+        <li>adb.exe push boot.img /sdcard/</li>
+        <li>Now see your mobile has recived </li>
+        <li>Now, open magisk app -> Install -> Select and Patch a file</li>
+        <li>Select the boot.img we pushed to mobile</li>
+        <li>It returns the magisk patched boot.img</li>
+        <li>getting the magisk patched boot.img using adb pull by following command</li>
+        <li>adb pull magisk_patched.img</li>       
+    </ol>
+    <h2 style="color: blue;">Step 5: Flashing magisk_patched.img</h2>
+    <p>Flashing by following commands</p>
+    <ol>
+        <li>adb reboot bootloader</li>
+        <li>fastboot flash boot magisk_patched.img</li>
+        <li>fastboot flash --disable-force-verification --disable-verity boot vbmeta vbmeta.img </li>
+        <li>fastboot reboot</li>
+    </ol>
+    <h2 style="color:darkblue;">Step 6: Root Check</h2>
+    <p>Installing the root Checker app in mobile using above link</p>
+    <p>Click verify root -> Grant Permission forever when it is popped up a window.</p>
+    <p>after that, you can the see text, Congratulations! Root access is properly installed on this device!</p>
+    <p style="text-align: center;background-color: blueviolet;color: aliceblue;height:30px;">Enjoy! Your Redmi 10a Phone is now get rooted.</p>
+</body>
+</html>
